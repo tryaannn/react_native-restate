@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  Button,
   FlatList,
   Image,
   Text,
@@ -9,17 +10,15 @@ import {
 import { useEffect } from "react";
 import { router, useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 import icons from "@/constants/icons";
-
 import Search from "@/components/Search";
 import Filters from "@/components/Filters";
 import NoResults from "@/components/NoResults";
 import { Card, FeaturedCard } from "@/components/Cards";
-
 import { useAppwrite } from "@/lib/useAppwrite";
 import { useGlobalContext } from "@/lib/global-provider";
 import { getLatestProperties, getProperties } from "@/lib/appwrite";
+// import seed from "@/lib/seed";
 
 const Home = () => {
   const { user } = useGlobalContext();
@@ -57,6 +56,7 @@ const Home = () => {
 
   return (
     <SafeAreaView className="h-full bg-white">
+      {/* <Button title="Seed" onPress={seed} /> */}
       <FlatList
         data={properties}
         numColumns={2}
@@ -130,7 +130,7 @@ const Home = () => {
               )}
             </View>
 
-            {/* <Button title="seed" onPress={seed} /> */}
+            
 
             <View className="mt-5">
               <View className="flex flex-row items-center justify-between">
